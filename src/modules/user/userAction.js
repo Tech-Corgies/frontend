@@ -8,6 +8,7 @@ export const userLogin = (userData, history) => dispatch => {
   axios
     .post(`${baseUrl}/auth/login`)
     .then(({ data }) => {
+      console.log(data);
       dispatch({
         type: types.ON_LOGIN_SUCCESS,
         payload: data.user,
@@ -18,7 +19,7 @@ export const userLogin = (userData, history) => dispatch => {
     .catch(errors => {
       dispatch({
         type: types.ON_LOGIN_FAILURE,
-        payload: errors.response.data.message,
+        payload: errors.response.message,
       });
     });
 };
@@ -51,21 +52,20 @@ export const userLogout = history => dispatch => {
 };
 
 export const googleAuthorized = (token, history) => dispatch => {
-  dispatch({ type: types.GOOGLE_AUTH_START });
+  dispatch({ type: types.ON_GOOGLE_AUTH_START });
   axios
     .post(`${baseUrl}/auth/google/${token}`)
     .then(({ data }) => {
       dispatch({
-        type: types.GOOGLE_AUTH_SUCCESS,
+        type: types.ON_GOOGLE_AUTH_SUCCESS,
         payload: data.user,
       });
       setToken(token);
-      dispatch({ type: types.CLEAR_RESPONSES });
       history.push('/dashboard');
     })
     .catch(errors => {
       dispatch({
-        type: types.GOOGLE_AUTH_FAILURE,
+        type: types.ON_GOOGLE_AUTH_FAILURE,
         payload: errors.response.data.message,
       });
     });
