@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wrapper } from './styles/registerStyles';
 
 export default function Register() {
   const Wrapper = styled.section`
@@ -50,6 +51,6 @@ export default function Register() {
       Enviro streamlines the recycling process by providing users with all the information that they need without any of the hassle. It (1) classifies the user's image based on what kind of trash it is, (2) teach the user how to recycle that item, and (3) measure the user's impact on the environment. 
       </Blurb>
     </Wrapper>
-    </div>
+   </div>
   );
 }
