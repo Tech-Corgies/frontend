@@ -6,14 +6,13 @@ import { setToken, clearLocalStorage } from '../../utils/authHelpers';
 export const userLogin = (userData, history) => dispatch => {
   dispatch({ type: types.ON_LOGIN_START });
   axios
-    .post(`${baseUrl}/auth/login`)
-    .then(({ data }) => {
-      console.log(data);
+    .post(`${baseUrl}/auth/login`, userData)
+    .then(response => {
       dispatch({
         type: types.ON_LOGIN_SUCCESS,
-        payload: data.user,
+        payload: response.data.user,
       });
-      setToken(data.token);
+      setToken(response.data.token);
       history.push('/dashboard');
     })
     .catch(errors => {
@@ -27,13 +26,13 @@ export const userLogin = (userData, history) => dispatch => {
 export const userRegister = (userData, history) => dispatch => {
   dispatch({ type: types.ON_REGISTER_START });
   axios
-    .post(`${baseUrl}/auth/`, userData)
-    .then(res => {
+    .post(`${baseUrl}/auth`, userData)
+    .then(response => {
       dispatch({
         type: types.ON_REGISTER_FAILURE,
-        payload: res.data.user,
+        payload: response.data.user,
       });
-      setToken(res.data.data.token);
+      setToken(response.data.token);
       history.push('/dashboard');
     })
     .catch(errors => {
@@ -55,10 +54,10 @@ export const googleAuthorized = (token, history) => dispatch => {
   dispatch({ type: types.ON_GOOGLE_AUTH_START });
   axios
     .post(`${baseUrl}/auth/google/${token}`)
-    .then(({ data }) => {
+    .then(response => {
       dispatch({
         type: types.ON_GOOGLE_AUTH_SUCCESS,
-        payload: data.user,
+        payload: response.data.user,
       });
       setToken(token);
       history.push('/dashboard');
