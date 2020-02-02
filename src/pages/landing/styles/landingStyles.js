@@ -10,8 +10,8 @@ export const Subtitle = styled.h2`
   font-size: 50px;
   line-height: 5px;
   text-align: center;
-  position: relative;
-  bottom: 30px;
+//   position: relative;
+//   bottom: 30px;
   // color: mediumseagreen;
 `;
 export const Wrapper = styled.section`
