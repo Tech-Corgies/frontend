@@ -18,7 +18,7 @@ export const userLogin = (userData, history) => dispatch => {
     .catch(errors => {
       dispatch({
         type: types.ON_LOGIN_FAILURE,
-        payload: errors.response.message,
+        payload: errors.response.data.message,
       });
     });
 };

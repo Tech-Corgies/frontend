@@ -1,22 +1,25 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { Route, Switch } from 'react-router';
+import Landing from './pages/landing/Landing';
+import Register from './pages/register/Register';
+import Login from './pages/login/Login';
+import About from './pages/about/About';
+import Team from './pages/team/Team';
+import UseEnviro from './pages/useenviro/UseEnviro';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hey</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/about" component={About} />
+        <Route path="/team" component={Team} />
+        <Route path="/useenviro" component={UseEnviro} />
+        <Route path="/dashboard" component={Dashboard} />
+      </Switch>
     </div>
   );
 }
