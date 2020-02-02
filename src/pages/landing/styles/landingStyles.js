@@ -6,12 +6,12 @@ export const Title = styled.h1`
   line-height: 0px;
   // color: mediumseagreen;
 `;
-export const Subtitle = styled.h1`
+export const Subtitle = styled.h2`
   font-size: 50px;
   line-height: 5px;
   text-align: center;
-  // position: relative;
-  // bottom: 55px;
+  position: relative;
+  top: 30px;
   // color: mediumseagreen;
 `;
 export const Wrapper = styled.section`
