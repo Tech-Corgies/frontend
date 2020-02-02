@@ -11,10 +11,10 @@ a, a:hover, a:visited, a:active{
   text-decoration: none;
 }
 .e{
-  height: 1em;
+  height: 85px;
   width: auto;
   position: relative;
-  top: 15px;
+  top: 16px;
 }
 a, p{
   font-family: 'Open Sans', sans-serif;
